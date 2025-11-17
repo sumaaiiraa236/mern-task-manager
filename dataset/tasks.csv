@@ -1,0 +1,6 @@
+title,description,status,priority,dueDate
+Buy groceries,"Milk, Eggs, Bread",pending,medium,2025-01-20
+Finish MERN project,"Complete frontend + backend",in-progress,high,2025-01-25
+Gym workout,"Leg day session",completed,low,2025-01-10
+Read book,"Finish 30 pages",pending,low,2025-01-22
+Pay bills,"Electricity + Internet",pending,high,2025-01-18

@@ -1,0 +1,105 @@
+{
+  "info": {
+    "name": "MERN Task Manager API",
+    "_postman_id": "mern-task-manager-collection-001",
+    "description": "Collection to test the MERN Task Manager API (tasks CRUD). Update the environment variable `base_url` if your backend runs on a different host/port.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get All Tasks",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/tasks",
+          "host": ["{{base_url}}"],
+          "path": ["api","tasks"]
+        },
+        "description": "Retrieve a list of all tasks"
+      },
+      "response": []
+    },
+    {
+      "name": "Get Task by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/tasks/:id",
+          "host": ["{{base_url}}"],
+          "path": ["api","tasks",":id"]
+        },
+        "description": "Retrieve a single task by its MongoDB _id. Replace :id with an actual task _id."
+      },
+      "response": []
+    },
+    {
+      "name": "Create Task",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Postman Test Task\",\n  \"description\": \"Created from Postman\",\n  \"status\": \"pending\",\n  \"priority\": \"medium\",\n  \"dueDate\": \"2025-12-31\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/tasks",
+          "host": ["{{base_url}}"],
+          "path": ["api","tasks"]
+        },
+        "description": "Create a new task. dueDate format: YYYY-MM-DD (or full ISO)."
+      },
+      "response": []
+    },
+    {
+      "name": "Update Task",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Updated Title\",\n  \"description\": \"Updated via Postman\",\n  \"status\": \"in-progress\",\n  \"priority\": \"high\",\n  \"dueDate\": \"2026-01-15\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/tasks/:id",
+          "host": ["{{base_url}}"],
+          "path": ["api","tasks",":id"]
+        },
+        "description": "Update task fields. Replace :id with the task's _id."
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Task",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/tasks/:id",
+          "host": ["{{base_url}}"],
+          "path": ["api","tasks",":id"]
+        },
+        "description": "Delete a task by its _id. Replace :id with an actual task _id."
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:5000",
+      "type": "string"
+    }
+  ]
+}
