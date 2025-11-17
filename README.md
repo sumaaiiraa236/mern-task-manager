@@ -16,7 +16,7 @@ CSV dataset auto-import using seed script
 
 Organized project structure
 <h2>📁 Project Structure</h2>
-mern-task-manager-demo/
+<br>mern-task-manager-demo/
 ├── backend/
 │   ├── models/
 │   ├── routes/
@@ -35,4 +35,4 @@ mern-task-manager-demo/
 │   └── mern-task-manager-postman.json
 │
 ├── .gitignore
-└── README.md
+└── README.md</br>
