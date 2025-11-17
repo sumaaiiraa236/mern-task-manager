@@ -41,8 +41,7 @@ mern-task-manager-demo/
 │   ├── seed.js
 │   ├── server.js
 │   ├── package.json
-│   ├── .env.example
-│   └── .env               # local only — DO NOT commit
+│               
 ├── frontend/
 │   ├── src/
 │   ├── public/
@@ -92,7 +91,7 @@ npm install
 Create `.env` in `backend/` (or copy `.env.example`) and set:
 
 ```
-MONGODB_URI=mongodb://localhost:27017/mern_tasks
+MONGODB_URI=mongodb://localhost:27017/tasksmanager
 PORT=5000
 ```
 
@@ -159,6 +158,8 @@ Import the provided collection:
 ```
 
 It includes pre-configured requests for all CRUD endpoints. Open Postman → Import → choose the file.
+<img width="1740" height="836" alt="POST" src="https://github.com/user-attachments/assets/aacf76f5-5b32-43b7-9f96-80a24e7d0cc8" />
+<img width="1808" height="938" alt="GET" src="https://github.com/user-attachments/assets/bb3e54d9-321f-40b1-943d-3810810f2ed7" />
 
 ---
 
