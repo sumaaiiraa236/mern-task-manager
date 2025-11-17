@@ -15,7 +15,7 @@ Clean React UI
 CSV dataset auto-import using seed script
 
 Organized project structure
-📁 Project Structure
+<h2>📁 Project Structure</h2>
 mern-task-manager-demo/
 ├── backend/
 │   ├── models/
