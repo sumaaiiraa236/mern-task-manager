@@ -62,12 +62,15 @@ Frontend
 - Axios
 - CSS3
 - Functional components + Hooks
+<img width="1877" height="890" alt="frontend ui" src="https://github.com/user-attachments/assets/e60cbaaf-1ac3-43cb-848b-2ea0bf60d079" />
 
 Backend
 - Node.js
 - Express
 - Mongoose
 - MongoDB
+<img width="1690" height="903" alt="deleted" src="https://github.com/user-attachments/assets/6487b458-166f-47f0-8db1-27700b85e389" />
+<img width="518" height="126" alt="backend running" src="https://github.com/user-attachments/assets/0cbd847c-878a-41f7-9504-f5a4348ac4bd" />
 
 ---
 
