@@ -160,7 +160,7 @@ Import the provided collection:
 /postman/mern-task-manager-postman.json
 ```
 
-It includes pre-configured requests for all CRUD endpoints. Open Postman → Import → choose the file.
+
 <img width="1740" height="836" alt="POST" src="https://github.com/user-attachments/assets/aacf76f5-5b32-43b7-9f96-80a24e7d0cc8" />
 <img width="1808" height="938" alt="GET" src="https://github.com/user-attachments/assets/bb3e54d9-321f-40b1-943d-3810810f2ed7" />
 
@@ -179,9 +179,7 @@ Read book,"Finish 30 pages",pending,low,2025-01-22
 Pay bills,"Electricity + Internet",pending,high,2025-01-18
 ```
 
-Ensure `seed.js` reads this CSV and inserts records into MongoDB. If `seed.js` expects a file path, place the CSV at the path the script references (or update the script).
 
----
 
 ## Contributing
 
@@ -191,17 +189,3 @@ Contributions are welcome. To contribute:
 3. Commit your changes
 4. Open a PR with a clear description of your changes
 
-Please avoid committing secrets or local `.env` files.
-
----
-
-## License
-
-This repository is provided for demo and learning purposes. Add a license (e.g., MIT) to make reuse explicit.
-
----
-
-If you want, I can:
-- Convert this into a commit-ready file and give you the exact git commands to create a branch and push the updated README, or
-- Create a small PR template / contribution guide to go with this README.
-```
