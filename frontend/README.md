@@ -1,70 +1,203 @@
-# Getting Started with Create React App
+# MERN Task Manager — CRUD Demo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple, well-documented MERN stack demo that showcases Create, Read, Update, and Delete (CRUD) operations using MongoDB, Express, React, and Node.js. Includes a backend REST API (Postman collection included), a React frontend, and a CSV seed dataset for easy local testing.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Table of contents
 
-### `npm start`
+- [Features](#features)
+- [Project structure](#project-structure)
+- [Tech stack](#tech-stack)
+- [Quick start](#quick-start)
+  - [Backend](#backend)
+  - [Frontend](#frontend)
+- [API](#api)
+- [Postman collection](#postman-collection)
+- [Seed dataset (CSV)](#seed-dataset-csv)
+- [Contributing](#contributing)
+- [License](#license)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+- Full CRUD for tasks (Create, Read, Update, Delete)
+- MongoDB integration with Mongoose
+- REST API endpoints (testable via Postman)
+- React frontend using functional components + Hooks
+- CSV seed script to bootstrap sample data
+- Simple, maintainable project layout for learning and demos
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Project structure
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+mern-task-manager-demo/
+├── backend/
+│   ├── models/
+│   ├── routes/
+│   ├── seed.js
+│   ├── server.js
+│   ├── package.json
+│   ├── .env.example
+│   └── .env               # local only — DO NOT commit
+├── frontend/
+│   ├── src/
+│   ├── public/
+│   ├── package.json
+│   └── App.js
+├── postman/
+│   └── mern-task-manager-postman.json
+├── .gitignore
+└── README.md
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Tech stack
 
-### `npm run eject`
+Frontend
+- React
+- Axios
+- CSS3
+- Functional components + Hooks
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Backend
+- Node.js
+- Express
+- Mongoose
+- MongoDB
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Quick start
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Prerequisites: Node.js (v14+ recommended), npm or yarn, and MongoDB.
 
-## Learn More
+1. Clone the repo
+```bash
+git clone https://github.com/sumaaiiraa236/mern-task-manager.git
+cd mern-task-manager
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Backend
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+cd backend
+npm install
+```
 
-### Code Splitting
+Create `.env` in `backend/` (or copy `.env.example`) and set:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+MONGODB_URI=mongodb://localhost:27017/mern_tasks
+PORT=5000
+```
 
-### Analyzing the Bundle Size
+Seed the database from the CSV (if `seed.js` exists and reads the CSV):
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+# from backend/
+node seed.js
+```
 
-### Making a Progressive Web App
+Start the backend:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+npm run dev    # if using nodemon
+# or
+node server.js
+```
 
-### Advanced Configuration
+Backend default URL: http://localhost:5000
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Frontend
 
-### Deployment
+```bash
+cd ../frontend
+npm install
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Frontend default URL: http://localhost:3000
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## API
+
+Base URL: `http://localhost:5000/api/tasks`
+
+| Method | Endpoint           | Description               |
+|--------|--------------------|---------------------------|
+| GET    | /api/tasks         | Get all tasks             |
+| GET    | /api/tasks/:id     | Get a single task by id   |
+| POST   | /api/tasks         | Create a new task         |
+| PUT    | /api/tasks/:id     | Update a task             |
+| DELETE | /api/tasks/:id     | Delete a task             |
+
+Example: Create a task (POST /api/tasks)
+```json
+{
+  "title": "Buy groceries",
+  "description": "Milk, Eggs, Bread",
+  "status": "pending",
+  "priority": "medium",
+  "dueDate": "2025-01-20"
+}
+```
+
+---
+
+## Postman collection
+
+Import the provided collection:
+
+```
+/postman/mern-task-manager-postman.json
+```
+
+It includes pre-configured requests for all CRUD endpoints. Open Postman → Import → choose the file.
+
+---
+
+## Seed dataset (CSV)
+
+Sample CSV used by the seed script:
+
+```
+title,description,status,priority,dueDate
+Buy groceries,"Milk, Eggs, Bread",pending,medium,2025-01-20
+Finish MERN project,"Complete frontend + backend",in-progress,high,2025-01-25
+Gym workout,"Leg day session",completed,low,2025-01-10
+Read book,"Finish 30 pages",pending,low,2025-01-22
+Pay bills,"Electricity + Internet",pending,high,2025-01-18
+```
+
+Ensure `seed.js` reads this CSV and inserts records into MongoDB. If `seed.js` expects a file path, place the CSV at the path the script references (or update the script).
+
+---
+
+## Contributing
+
+Contributions are welcome. To contribute:
+1. Fork the repo
+2. Create a feature branch (git checkout -b feature/xyz)
+3. Commit your changes
+4. Open a PR with a clear description of your changes
+
+Please avoid committing secrets or local `.env` files.
+
+---
+
+## License
+
+This repository is provided for demo and learning purposes. Add a license (e.g., MIT) to make reuse explicit.
+
+---
+
+If you want, I can:
+- Convert this into a commit-ready file and give you the exact git commands to create a branch and push the updated README, or
+- Create a small PR template / contribution guide to go with this README.
+```
