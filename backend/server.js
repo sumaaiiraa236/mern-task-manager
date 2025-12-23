@@ -1,33 +1,40 @@
-const express = require('express');
-const cors = require('cors');
-const dotenv = require('dotenv');
-const connectDB = require('./config/db');
-const taskRoutes = require('./routes/tasks');
+import express from 'express';
+import mongoose from 'mongoose';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-dotenv.config();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
+dotenv.config({ path: path.join(__dirname, '.env') });
 
-connectDB();
+import tasksRoutes from './routes/tasks.js';
+
+console.log('CWD:', process.cwd());
+console.log('MongoDB URI:', process.env.MONGODB_URI);
 
 const app = express();
-
 
 app.use(cors());
 app.use(express.json());
 
-app.use('/api/tasks', taskRoutes);
+app.use('/api/tasks', tasksRoutes);
 
 app.get('/', (req, res) => {
-  res.json({
-    message: 'MERN Task Manager API',
-    version: '1.0.0',
-    endpoints: {
-      tasks: '/api/tasks'
-    }
-  });
+  res.send('API running');
 });
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+mongoose
+  .connect(process.env.MONGODB_URI)
+  .then(() => {
+    console.log('MongoDB connected');
+    const PORT = process.env.PORT || 5000;
+    app.listen(PORT, () =>
+      console.log(`Server running on port ${PORT}`)
+    );
+  })
+  .catch(err => {
+    console.error('MongoDB connection failed:', err.message);
+  });

@@ -2,14 +2,12 @@
 import axios from 'axios';
 
 const BASE = process.env.REACT_APP_API_BASE || 'http://localhost:5000';
-const API_URL = `${BASE}/api/tasks`;
 
 const client = axios.create({
   baseURL: BASE,
   headers: { 'Content-Type': 'application/json' },
   timeout: 10000
 });
-
 
 const api = {
   getAllTasks: async () => {
